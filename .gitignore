@@ -1,0 +1,6 @@
+# Intelij
+.idea/
+chess-attack.iml
+
+# Bash
+*.sh
