@@ -192,10 +192,110 @@ public class FENViewer {
                             }
                             break;
                         case 'q':
-
+                            for (int k = i-1; k > -1; k--) {
+                                if (positionArray[j][k] != '*') {
+                                    pointArray[j][k]--;
+                                    break;
+                                }
+                                pointArray[j][k]--;
+                            }
+                            for (int k = j-1; k > -1; k--) {
+                                if (positionArray[k][i] != '*') {
+                                    pointArray[k][i]--;
+                                    break;
+                                }
+                                pointArray[k][i]--;
+                            }
+                            for (int k = i+1; k < 8; k++) {
+                                if (positionArray[j][k] != '*') {
+                                    pointArray[j][k]--;
+                                    break;
+                                }
+                                pointArray[j][k]--;
+                            }
+                            for (int k = j+1; k < 8; k++) {
+                                if (positionArray[k][i] != '*') {
+                                    pointArray[k][i]--;
+                                    break;
+                                }
+                                pointArray[k][i]--;
+                            }
+                            int ww = i+1;
+                            int xx = j+1;
+                            while (ww < 8 && xx < 8) {
+                                if (positionArray[xx][ww] != '*') {
+                                    pointArray[xx][ww]--;
+                                    break;
+                                }
+                                pointArray[xx][ww]--;
+                                ww++;
+                                xx++;
+                            }
+                            ww = i-1;
+                            xx = j+1;
+                            while (ww > -1 && xx < 8) {
+                                if (positionArray[xx][ww] != '*') {
+                                    pointArray[xx][ww]--;
+                                    break;
+                                }
+                                pointArray[xx][ww]--;
+                                ww--;
+                                xx++;
+                            }
+                            ww = i-1;
+                            xx = j-1;
+                            while (ww > -1 && xx > -1) {
+                                if (positionArray[xx][ww] != '*') {
+                                    pointArray[xx][ww]--;
+                                    break;
+                                }
+                                pointArray[xx][ww]--;
+                                ww--;
+                                xx--;
+                            }
+                            ww = i+1;
+                            xx = j-1;
+                            while (ww < 8 && xx > -1) {
+                                if (positionArray[xx][ww] != '*') {
+                                    pointArray[xx][ww]--;
+                                    break;
+                                }
+                                pointArray[xx][ww]--;
+                                ww++;
+                                xx--;
+                            }
                             break;
                         case 'k':
-
+                            if (i-1 > -1) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i-1]--;
+                                }
+                                if (j > -1 && j < 8) {
+                                    pointArray[j][i-1]--;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i-1]--;
+                                }
+                            }
+                            if (i > -1) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i]--;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i]--;
+                                }
+                            }
+                            if (i+1 < 8) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i+1]--;
+                                }
+                                if (j > -1 && j < 8) {
+                                    pointArray[j][i+1]--;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i+1]--;
+                                }
+                            }
                             break;
                         case 'P':
                             if (j == 0) {
@@ -310,10 +410,110 @@ public class FENViewer {
                             }
                             break;
                         case 'Q':
-
+                            for (int k = i-1; k > -1; k--) {
+                                if (positionArray[j][k] != '*') {
+                                    pointArray[j][k]++;
+                                    break;
+                                }
+                                pointArray[j][k]++;
+                            }
+                            for (int k = j-1; k > -1; k--) {
+                                if (positionArray[k][i] != '*') {
+                                    pointArray[k][i]++;
+                                    break;
+                                }
+                                pointArray[k][i]++;
+                            }
+                            for (int k = i+1; k < 8; k++) {
+                                if (positionArray[j][k] != '*') {
+                                    pointArray[j][k]++;
+                                    break;
+                                }
+                                pointArray[j][k]++;
+                            }
+                            for (int k = j+1; k < 8; k++) {
+                                if (positionArray[k][i] != '*') {
+                                    pointArray[k][i]++;
+                                    break;
+                                }
+                                pointArray[k][i]++;
+                            }
+                            int yy = i+1;
+                            int zz = j+1;
+                            while (yy < 8 && zz < 8) {
+                                if (positionArray[zz][yy] != '*') {
+                                    pointArray[zz][yy]++;
+                                    break;
+                                }
+                                pointArray[zz][yy]++;
+                                yy++;
+                                zz++;
+                            }
+                            yy = i-1;
+                            zz = j+1;
+                            while (yy > -1 && zz < 8) {
+                                if (positionArray[zz][yy] != '*') {
+                                    pointArray[zz][yy]++;
+                                    break;
+                                }
+                                pointArray[zz][yy]++;
+                                yy--;
+                                zz++;
+                            }
+                            yy = i-1;
+                            zz = j-1;
+                            while (yy > -1 && zz > -1) {
+                                if (positionArray[zz][yy] != '*') {
+                                    pointArray[zz][yy]++;
+                                    break;
+                                }
+                                pointArray[zz][yy]++;
+                                yy--;
+                                zz--;
+                            }
+                            yy = i+1;
+                            zz = j-1;
+                            while (yy < 8 && zz > -1) {
+                                if (positionArray[zz][yy] != '*') {
+                                    pointArray[zz][yy]++;
+                                    break;
+                                }
+                                pointArray[zz][yy]++;
+                                yy++;
+                                zz--;
+                            }
                             break;
                         case 'K':
-
+                            if (i-1 > -1) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i-1]++;
+                                }
+                                if (j > -1 && j < 8) {
+                                    pointArray[j][i-1]++;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i-1]++;
+                                }
+                            }
+                            if (i > -1) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i]++;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i]++;
+                                }
+                            }
+                            if (i+1 < 8) {
+                                if (j-1 > -1 && j-1 < 8) {
+                                    pointArray[j-1][i+1]++;
+                                }
+                                if (j > -1 && j < 8) {
+                                    pointArray[j][i+1]++;
+                                }
+                                if (j+1 > -1 && j+1 < 8) {
+                                    pointArray[j+1][i+1]++;
+                                }
+                            }
                             break;
                         default:
                             // default for nulls (debug)
