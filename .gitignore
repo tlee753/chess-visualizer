@@ -4,3 +4,6 @@ chess-attack.iml
 
 # Bash
 *.sh
+
+# Java
+*.class
