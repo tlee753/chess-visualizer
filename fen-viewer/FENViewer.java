@@ -14,6 +14,14 @@ public class FENViewer {
         return position;
     }
 
+    public char[][] getPositionArray() {
+        return positionArray;
+    }
+
+    public int[][] getPointArray() {
+        return pointArray;
+    }
+
     public void setPosition(String position) {
         this.position = position;
     }

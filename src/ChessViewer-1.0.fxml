@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,6 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChessController">
    <top>
@@ -26,7 +28,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" onAction="#initialize" text="Reset" />
+                  <MenuItem mnemonicParsing="false" onAction="#heatMap" text="Heatmap" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -37,16 +40,6 @@
         </menus>
       </MenuBar>
    </top>
-   <bottom>
-      <Label text="Chess Viewer v1.0" textAlignment="CENTER" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="12.0" />
-         </font>
-         <padding>
-            <Insets top="5.0" />
-         </padding>
-      </Label>
-   </bottom>
    <center>
       <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -138,18 +131,51 @@
       </GridPane>
    </center>
    <right>
-      <VBox prefHeight="622.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="625.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="positionField" promptText="Enter Position Here">
                <font>
                   <Font size="12.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
             </TextField>
-            <Button fx:id="positionButton" mnemonicParsing="false" onAction="#heatMap" text="Button">
+            <Button fx:id="positionButton" mnemonicParsing="false" onAction="#heatMap" text="Display Heatmap">
                <font>
                   <Font size="12.0" />
                </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
             </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </Text>
+            <TextArea editable="false" layoutX="20.0" layoutY="98.0" text="Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use and modification without sale in reproduction. Thank you for your cooperation and for using Chess Viewer!" wrapText="true">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </TextArea>
+            <Label text="Chess Viewer v1.0" textAlignment="CENTER">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
          </children>
       </VBox>
    </right>
