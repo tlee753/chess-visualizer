@@ -16,7 +16,7 @@ public class ChessController {
                  g1, g2, g3, g4, g5, g6, g7, g8, h1, h2, h3, h4, h5, h6, h7, h8;
 
     @FXML
-    private Button positionButton;
+    private Button heatMapButton;
 
     @FXML
     private TextField positionField;
@@ -91,5 +91,17 @@ public class ChessController {
             }
         }
 
+    }
+
+    @FXML
+    void startHeatMap() {
+        positionField.setText("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+        heatMap();
+    }
+
+    @FXML
+    void clearTextField() {
+        initialize();
+        positionField.setText("");
     }
 }
