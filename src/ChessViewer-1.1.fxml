@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -23,18 +24,19 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="closeMenuOption" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#initialize" text="Reset" />
-                  <MenuItem mnemonicParsing="false" onAction="#heatMap" text="Heatmap" />
+              <MenuItem fx:id="resetMenuOption" mnemonicParsing="false" onAction="#initialize" text="Reset" />
+                  <MenuItem fx:id="heatMapMenuOption" mnemonicParsing="false" onAction="#heatMap" text="Heatmap" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="aboutMenuOption" mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="aboutMenuOption" mnemonicParsing="false" onAction="#aboutProgram" text="About" />
+                  <MenuItem fx:id="instructionsMenuOption" mnemonicParsing="false" onAction="#instructions" text="Instructions" />
             </items>
           </Menu>
         </menus>
@@ -133,7 +135,7 @@
    <right>
       <VBox prefHeight="625.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="positionField" promptText="Enter Position Here">
+            <TextField fx:id="positionTextField" promptText="Enter Position Here">
                <font>
                   <Font size="12.0" />
                </font>
@@ -189,7 +191,7 @@
                   </Button>
                </children>
             </HBox>
-            <TextArea text="Example input (Starting Position): rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR" wrapText="true">
+            <TextArea fx:id="notepadTextArea" wrapText="true">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
@@ -197,15 +199,27 @@
                   <Font size="12.0" />
                </font>
             </TextArea>
-            <TextArea editable="false" layoutX="20.0" layoutY="98.0" text="Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use and modification without sale in reproduction. Thank you for your cooperation and for using Chess Viewer!" wrapText="true">
-               <font>
-                  <Font size="12.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </TextArea>
-            <Label text="Chess Viewer v1.0" textAlignment="CENTER">
+            <HBox>
+               <children>
+                  <Hyperlink fx:id="tlee753WebSite" onAction="#openGithub" text="Github">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Hyperlink>
+                  <Hyperlink fx:id="authorWebSite" onAction="#openWebSite" text="Author">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </HBox>
+            <Label text="Chess Viewer v1.1" textAlignment="CENTER">
                <font>
                   <Font size="12.0" />
                </font>

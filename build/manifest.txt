@@ -1,2 +1,0 @@
-Chess Visualizer 1.0
-By Tyler Lee
