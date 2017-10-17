@@ -33,7 +33,7 @@
                   <MenuItem fx:id="heatMapMenuOption" mnemonicParsing="false" onAction="#heatMap" text="Heatmap" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="aboutMenuOption" mnemonicParsing="false" text="Help">
             <items>
               <MenuItem fx:id="aboutMenuOption" mnemonicParsing="false" onAction="#aboutProgram" text="About" />
                   <MenuItem fx:id="instructionsMenuOption" mnemonicParsing="false" onAction="#instructions" text="Instructions" />
@@ -145,7 +145,7 @@
             </TextField>
             <HBox>
                <children>
-                  <Button fx:id="resetButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#initializeBoard" text="Reset Board">
+                  <Button fx:id="resetButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#initialize" text="Reset Board">
                      <font>
                         <Font size="12.0" />
                      </font>

@@ -114,8 +114,8 @@ public class ChessController {
 
     @FXML
     void clearTextField() {
-        positionTextField.setText("");
         initializeBoard();
+        positionTextField.setText("");
     }
 
     @FXML

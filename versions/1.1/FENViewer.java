@@ -39,7 +39,7 @@ public class FENViewer {
                         // System.out.println("hit");
                         boardPosition++;
                     }
-                } else if (position.charAt(i) == '/') {
+                // } else if (position.charAt(i) == '/') {
                     // System.out.println(boardPosition);
                     // System.out.println(positionArray);
                 } else {
