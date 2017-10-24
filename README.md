@@ -11,3 +11,4 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 - [ ] moveable piece implementation
 - [ ] valid position checking
 - [ ] highlighted fen strings (clickable to position)
+- [ ] toggle piece view

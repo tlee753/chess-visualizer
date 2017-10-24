@@ -47,20 +47,19 @@ public class ChessController {
     private TextArea notepadTextArea;
 
     @FXML
+    private ImageView logoImageView;
+
+    @FXML
     public void initialize() {
         setNotepadText();
         initializeBoard();
         initializeImageViews();
+        initializeLogoImageView();
     }
 
     @FXML
-    private void setImageView(Pane pane, ImageView imageView, Character piece) {
-        imageView.fitWidthProperty().bind(pane.widthProperty());
-        imageView.fitHeightProperty().bind(pane.heightProperty());
-        switch (piece) {
-
-        }
-        imageView.setImage(new Image("assets/black-bishop.png"));
+    private void initializeLogoImageView() {
+        logoImageView.setImage(new Image("assets/logo.png"));
     }
 
     @FXML
