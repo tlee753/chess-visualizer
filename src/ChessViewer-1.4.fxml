@@ -340,17 +340,6 @@
             </TextField>
             <HBox>
                <children>
-                  <Button fx:id="resetButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#initializeBoard" text="Reset Board">
-                     <font>
-                        <Font size="12.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button fx:id="heatMapButton" mnemonicParsing="false" onAction="#heatMap" text="Display Heatmap">
                      <font>
                         <Font size="12.0" />
@@ -362,7 +351,7 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="startingPositionButton" layoutX="130.0" layoutY="20.0" mnemonicParsing="false" onAction="#startHeatMap" text="Starting Position">
+                  <Button fx:id="resetButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#initializeBoard" text="Reset Board">
                      <font>
                         <Font size="12.0" />
                      </font>
@@ -374,6 +363,17 @@
                      </HBox.margin>
                   </Button>
                   <Button fx:id="clearTextButton" layoutX="246.0" layoutY="20.0" mnemonicParsing="false" onAction="#clearTextField" text="Clear Text">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="startingPositionButton" layoutX="130.0" layoutY="20.0" mnemonicParsing="false" onAction="#startHeatMap" text="Starting Position">
                      <font>
                         <Font size="12.0" />
                      </font>

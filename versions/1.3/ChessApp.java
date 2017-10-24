@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 // Stage
 import javafx.stage.Stage;
 
+
 public class ChessApp extends Application {
 
     public static void main(String[] args) {
@@ -16,9 +17,9 @@ public class ChessApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ChessViewer-1.4.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ChessViewer-1.3.fxml"));
 
-        stage.setTitle("Chess Viewer 1.4");
+        stage.setTitle("Chess Viewer 1.3");
         stage.setScene(new Scene(root, 1200, 675));
         stage.show();
     }

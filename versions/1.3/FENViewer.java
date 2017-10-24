@@ -614,14 +614,14 @@ public class FENViewer {
         }
     }
 
-    public int scorePoints() {
+    public void scorePoints() {
         int sum = 0;
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 sum += pointArray[i][j];
             }
         }
-        return sum;
+        // System.out.println(sum);
     }
 
 }

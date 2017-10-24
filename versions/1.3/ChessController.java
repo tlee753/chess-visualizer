@@ -5,8 +5,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -47,9 +45,6 @@ public class ChessController {
 
     @FXML
     private TextArea notepadTextArea;
-
-    @FXML
-    private Text scoreText;
 
     @FXML
     private ImageView logoImageView;
@@ -238,11 +233,11 @@ public class ChessController {
                     case '*':
                         break;
                     default:
-                        throw new NoSuchElementException("Can't find the element.");
+                        throw new NoSuchElementException("wtf bro");
                 }
             }
         }
-        scoreText.setText(Integer.toString(viewer.scorePoints()));
+        // viewer.scorePoints();
     }
 
     @FXML
