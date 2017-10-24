@@ -293,7 +293,7 @@ public class ChessController {
                 "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR\n\n" +
                 "Back Rank Checkmate:\n" +
                 "R5k1/5ppp/8/8/8/8/8/6K1\n\n" +
-                "Fischer Immortal Checkmate:\n" +
+                "Fischer Immortal Checkmater:\n" +
                 "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bN5/2r3P1/2K5");
     }
 
