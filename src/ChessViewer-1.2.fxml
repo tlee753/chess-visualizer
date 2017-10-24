@@ -9,6 +9,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -65,7 +66,10 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane fx:id="a8" layoutX="104.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0" />
+            <Pane fx:id="a8" layoutX="104.0" layoutY="97.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="a8ImageView" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+               </children></Pane>
             <Pane fx:id="b8" layoutX="10.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ccc;" GridPane.columnIndex="1" />
             <Pane fx:id="c8" layoutX="88.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
             <Pane fx:id="a7" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ccc;" GridPane.rowIndex="1" />

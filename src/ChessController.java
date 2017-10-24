@@ -1,19 +1,15 @@
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class ChessController {
 
@@ -30,13 +26,24 @@ public class ChessController {
     private TextArea notepadTextArea;
 
     @FXML
-    void initialize() {
+    private ImageView a8ImageView;
+
+    @FXML
+    public void initialize() {
         setNotepadText();
         initializeBoard();
+        setA8ImageView();
     }
 
     @FXML
-    void initializeBoard() {
+    private void setA8ImageView() {
+        Image image = new Image("black-bishop.png");
+        a8ImageView.setImage(image);
+        System.out.println("image showing");
+    }
+
+    @FXML
+    public void initializeBoard() {
         Pane[] lightSquares = {a2, a4, a6, a8, b1, b3, b5, b7, c2, c4, c6, c8, d1, d3, d5, d7, e2, e4, e6, e8, f1, f3, f5, f7, g2, g4, g6, g8, h1, h3, h5, h7};
         Pane[] darkSquares = {a1, a3, a5, a7, b2, b4, b6, b8, c1, c3, c5, c7, d2, d4, d6, d8, e1, e3, e5, e7, f2, f4, f6, f8, g1, g3, g5, g7, h2, h4, h6, h8};
 
@@ -49,7 +56,7 @@ public class ChessController {
     }
 
     @FXML
-    void heatMap() {
+    public void heatMap() {
         initializeBoard();
         Pane[] squares = {
             a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4, b5, b6, b7, b8,
@@ -107,24 +114,24 @@ public class ChessController {
     }
 
     @FXML
-    void startHeatMap() {
+    public void startHeatMap() {
         positionTextField.setText("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
         heatMap();
     }
 
     @FXML
-    void clearTextField() {
+    public void clearTextField() {
         positionTextField.setText("");
         initializeBoard();
     }
 
     @FXML
-    void closeProgram() {
+    public void closeProgram() {
         Platform.exit();
     }
 
     @FXML
-    void openGithub() {
+    public void openGithub() {
         if(Desktop.isDesktopSupported())
         {
             try {
@@ -138,7 +145,7 @@ public class ChessController {
     }
 
     @FXML
-    void openWebSite() {
+    public void openWebSite() {
         if(Desktop.isDesktopSupported())
         {
             try {
@@ -152,7 +159,7 @@ public class ChessController {
     }
 
     @FXML
-    void setNotepadText() {
+    private void setNotepadText() {
         notepadTextArea.setText("Example FEN positions:\n" +
                 "Starting Position:\n" +
                 "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR\n\n" +
@@ -163,12 +170,12 @@ public class ChessController {
     }
 
     @FXML
-    void aboutProgram() {
+    public void aboutProgram() {
         AlertBox.display("About Chess Viewer", "Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use and modification without sale in reproduction. Thank you for your cooperation and for using Chess Viewer!");
     }
 
     @FXML
-    void instructions() {
+    public void instructions() {
         AlertBox.display("Chess Viewer Instructions", "Input the beginning of an FEN string into the \"Enter Position Here\" box and click \"Display Heatmap\" to portray this position as each piece is attacked. The green squares represent squares controlled by white - the stronger the green the better the control, and like wise red squares are controlled by black.");
     }
 }
