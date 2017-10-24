@@ -6,7 +6,7 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 - [x] nuetral tension squares in yellow
 - [x] svg pieces :) & image views
 - [x] logo
-- [ ] error detection with FEN strings
+- [x] error detection with FEN strings
 - [ ] .pgn imports & navigation
 - [ ] moveable piece implementation
 - [ ] valid position checking
