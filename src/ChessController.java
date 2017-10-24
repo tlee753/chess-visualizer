@@ -6,9 +6,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.NoSuchElementException;
 
 
 public class ChessController {
@@ -20,26 +23,44 @@ public class ChessController {
                  g1, g2, g3, g4, g5, g6, g7, g8, h1, h2, h3, h4, h5, h6, h7, h8;
 
     @FXML
+    private ImageView a1ImageView, a2ImageView, a3ImageView, a4ImageView,
+                      a5ImageView, a6ImageView, a7ImageView, a8ImageView,
+                      b1ImageView, b2ImageView, b3ImageView, b4ImageView,
+                      b5ImageView, b6ImageView, b7ImageView, b8ImageView,
+                      c1ImageView, c2ImageView, c3ImageView, c4ImageView,
+                      c5ImageView, c6ImageView, c7ImageView, c8ImageView,
+                      d1ImageView, d2ImageView, d3ImageView, d4ImageView,
+                      d5ImageView, d6ImageView, d7ImageView, d8ImageView,
+                      e1ImageView, e2ImageView, e3ImageView, e4ImageView,
+                      e5ImageView, e6ImageView, e7ImageView, e8ImageView,
+                      f1ImageView, f2ImageView, f3ImageView, f4ImageView,
+                      f5ImageView, f6ImageView, f7ImageView, f8ImageView,
+                      g1ImageView, g2ImageView, g3ImageView, g4ImageView,
+                      g5ImageView, g6ImageView, g7ImageView, g8ImageView,
+                      h1ImageView, h2ImageView, h3ImageView, h4ImageView,
+                      h5ImageView, h6ImageView, h7ImageView, h8ImageView;
+
+    @FXML
     private TextField positionTextField;
 
     @FXML
     private TextArea notepadTextArea;
 
     @FXML
-    private ImageView a8ImageView;
-
-    @FXML
     public void initialize() {
         setNotepadText();
         initializeBoard();
-        setA8ImageView();
+        initializeImageViews();
     }
 
     @FXML
-    private void setA8ImageView() {
-        Image image = new Image("black-bishop.png");
-        a8ImageView.setImage(image);
-        System.out.println("image showing");
+    private void setImageView(Pane pane, ImageView imageView, Character piece) {
+        imageView.fitWidthProperty().bind(pane.widthProperty());
+        imageView.fitHeightProperty().bind(pane.heightProperty());
+        switch (piece) {
+
+        }
+        imageView.setImage(new Image("assets/black-bishop.png"));
     }
 
     @FXML
@@ -56,19 +77,75 @@ public class ChessController {
     }
 
     @FXML
+    private void initializeImageViews() {
+        Pane[] squares = {
+                a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4, b5, b6, b7, b8,
+                c1, c2, c3, c4, c5, c6, c7, c8, d1, d2, d3, d4, d5, d6, d7, d8,
+                e1, e2, e3, e4, e5, e6, e7, e8, f1, f2, f3, f4, f5, f6, f7, f8,
+                g1, g2, g3, g4, g5, g6, g7, g8, h1, h2, h3, h4, h5, h6, h7, h8
+        };
+        ImageView[] views = {
+                a1ImageView, a2ImageView, a3ImageView, a4ImageView,
+                a5ImageView, a6ImageView, a7ImageView, a8ImageView,
+                b1ImageView, b2ImageView, b3ImageView, b4ImageView,
+                b5ImageView, b6ImageView, b7ImageView, b8ImageView,
+                c1ImageView, c2ImageView, c3ImageView, c4ImageView,
+                c5ImageView, c6ImageView, c7ImageView, c8ImageView,
+                d1ImageView, d2ImageView, d3ImageView, d4ImageView,
+                d5ImageView, d6ImageView, d7ImageView, d8ImageView,
+                e1ImageView, e2ImageView, e3ImageView, e4ImageView,
+                e5ImageView, e6ImageView, e7ImageView, e8ImageView,
+                f1ImageView, f2ImageView, f3ImageView, f4ImageView,
+                f5ImageView, f6ImageView, f7ImageView, f8ImageView,
+                g1ImageView, g2ImageView, g3ImageView, g4ImageView,
+                g5ImageView, g6ImageView, g7ImageView, g8ImageView,
+                h1ImageView, h2ImageView, h3ImageView, h4ImageView,
+                h5ImageView, h6ImageView, h7ImageView, h8ImageView
+        };
+        for (int i = 0; i < 64; i++) {
+            views[i].fitWidthProperty().bind(squares[i].widthProperty());
+            views[i].fitHeightProperty().bind(squares[i].heightProperty());
+            views[i].setImage(null);
+        }
+    }
+
+    @FXML
     public void heatMap() {
         initializeBoard();
+        initializeImageViews();
         Pane[] squares = {
             a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4, b5, b6, b7, b8,
             c1, c2, c3, c4, c5, c6, c7, c8, d1, d2, d3, d4, d5, d6, d7, d8,
             e1, e2, e3, e4, e5, e6, e7, e8, f1, f2, f3, f4, f5, f6, f7, f8,
             g1, g2, g3, g4, g5, g6, g7, g8, h1, h2, h3, h4, h5, h6, h7, h8
         };
+        ImageView[] views = {
+                a1ImageView, a2ImageView, a3ImageView, a4ImageView,
+                a5ImageView, a6ImageView, a7ImageView, a8ImageView,
+                b1ImageView, b2ImageView, b3ImageView, b4ImageView,
+                b5ImageView, b6ImageView, b7ImageView, b8ImageView,
+                c1ImageView, c2ImageView, c3ImageView, c4ImageView,
+                c5ImageView, c6ImageView, c7ImageView, c8ImageView,
+                d1ImageView, d2ImageView, d3ImageView, d4ImageView,
+                d5ImageView, d6ImageView, d7ImageView, d8ImageView,
+                e1ImageView, e2ImageView, e3ImageView, e4ImageView,
+                e5ImageView, e6ImageView, e7ImageView, e8ImageView,
+                f1ImageView, f2ImageView, f3ImageView, f4ImageView,
+                f5ImageView, f6ImageView, f7ImageView, f8ImageView,
+                g1ImageView, g2ImageView, g3ImageView, g4ImageView,
+                g5ImageView, g6ImageView, g7ImageView, g8ImageView,
+                h1ImageView, h2ImageView, h3ImageView, h4ImageView,
+                h5ImageView, h6ImageView, h7ImageView, h8ImageView
+        };
 
         FENViewer viewer = new FENViewer(positionTextField.getText());
         int[][] pointArray = viewer.getPointArray();
+        char[][] pieceArray = viewer.getPositionArray();
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+
+                // adjust colors via points
                 int points = pointArray[j][i];
                 String hex = "";
                 if (points > 0) {
@@ -107,6 +184,52 @@ public class ChessController {
                             hex = "0";
                     }
                     squares[j * 8 + (7-i)].setStyle("-fx-background-color: #" + hex + "00;");
+                }
+
+                // add pieces to squares
+                char piece = pieceArray[j][i];
+
+                switch (piece) {
+                    case 'p':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-pawn.png"));
+                        break;
+                    case 'r':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-rook.png"));
+                        break;
+                    case 'n':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-knight.png"));
+                        break;
+                    case 'b':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-bishop.png"));
+                        break;
+                    case 'q':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-queen.png"));
+                        break;
+                    case 'k':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/black-king.png"));
+                        break;
+                    case 'P':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-pawn.png"));
+                        break;
+                    case 'R':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-rook.png"));
+                        break;
+                    case 'N':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-knight.png"));
+                        break;
+                    case 'B':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-bishop.png"));
+                        break;
+                    case 'Q':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-queen.png"));
+                        break;
+                    case 'K':
+                        views[j * 8 + (7-i)].setImage(new Image("assets/white-king.png"));
+                        break;
+                    case '*':
+                        break;
+                    default:
+                        throw new NoSuchElementException("wtf bro");
                 }
             }
         }
