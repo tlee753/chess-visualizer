@@ -251,6 +251,7 @@ public class ChessController {
     public void clearTextField() {
         positionTextField.setText("");
         initializeBoard();
+        initializeImageViews();
     }
 
     @FXML
@@ -294,7 +295,7 @@ public class ChessController {
                 "Back Rank Checkmate:\n" +
                 "R5k1/5ppp/8/8/8/8/8/6K1\n\n" +
                 "Fischer Immortal Checkmate:\n" +
-                "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bN5/2r3P1/2K5");
+                "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5");
     }
 
     @FXML

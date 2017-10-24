@@ -3,11 +3,11 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 
 ### TODO
 - [x] About/Instruction pop up boxes
-- [ ] nuetral tension squares in yellow
-- [ ] svg pieces :) & image views
+- [x] nuetral tension squares in yellow
+- [x] svg pieces :) & image views
 - [ ] logo
 - [ ] error detection with FEN strings
 - [ ] .pgn imports & navigation
 - [ ] moveable piece implementation
 - [ ] valid position checking
-- [ ] highlighted fen strings
+- [ ] highlighted fen strings (clickable to position)

@@ -1,6 +1,6 @@
 ### Jar Compilation
-jar -cvfm Chess-1.1-1.9.jar Manifest.txt *.class *.fxml
+jar -cvfm Chess-<version>-<java version>.jar manifest.txt *.class *.fxml assets
 
 ### Java Compilation
-javac -target 1.7 -source 1.7 *.java
+javac -target 1.8 -source 1.8 *.java
 
