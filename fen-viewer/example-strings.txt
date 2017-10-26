@@ -3,3 +3,8 @@ rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1
 
 # Typical knight out opening
 rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
+
+# Opera Game Checkmate
+1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5
+
+
