@@ -7,6 +7,8 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 - [x] svg pieces :) & image views
 - [x] logo
 - [x] error detection with FEN strings
+- [x] score 
+- [ ] further analytics
 - [ ] .pgn imports & navigation
 - [ ] moveable piece implementation
 - [ ] valid position checking

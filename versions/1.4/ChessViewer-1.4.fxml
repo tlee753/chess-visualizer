@@ -439,7 +439,7 @@
                   <Insets left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <ImageView fx:id="logoImageView" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logoImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets left="10.0" top="10.0" />
                </VBox.margin>
