@@ -6,6 +6,11 @@ Open source chess program devised to create a psuedo heat map of a chess board w
     - That means no `sudo apt install openjdk` debian-based Linux users
     - currently the focus is on the JDK 8, but 10 will someday be the only supported platform
 
+### Repository Layout
+- src: the in development source code
+- release: jar files containing the program releases in the format `Chess-<PROGAM VERSION>-<JAVA RELEASE>.jar`
+- assets: various assets used to design/develop/test the program 
+
 ### TODO
 - [x] About/Instruction pop up boxes
 - [x] nuetral tension squares in yellow
@@ -14,7 +19,7 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 - [x] error detection with FEN strings
 - [x] score 
 - [ ] further analytics
-- [ ] .pgn imports & navigation
+- [x] .pgn imports & navigation
 - [ ] moveable piece implementation
 - [ ] valid position checking
 - [ ] highlighted fen strings (clickable to position)
