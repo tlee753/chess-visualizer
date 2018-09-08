@@ -19,7 +19,7 @@ public class ChessApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("ChessViewer-1.5.fxml"));
 
         stage.setTitle("Chess Viewer 1.5");
-        stage.setScene(new Scene(root, 1200, 675));
+        stage.setScene(new Scene(root, 1200, 720));
         stage.show();
     }
 }

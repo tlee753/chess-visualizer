@@ -4,19 +4,32 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.NoSuchElementException;
 
+import javax.swing.border.Border;
+
+import chesspresso.Chess;
+import chesspresso.game.Game;
+import chesspresso.position.Position;
+import chesspresso.pgn.PGN;
+import chesspresso.pgn.PGNReader;
+
 
 public class ChessController {
+
+    Game theGame;
 
     @FXML
     private Pane a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4, b5, b6, b7, b8,
@@ -43,6 +56,9 @@ public class ChessController {
                       h5ImageView, h6ImageView, h7ImageView, h8ImageView;
 
     @FXML
+    private TextField gameTextField;
+
+    @FXML
     private TextField positionTextField;
 
     @FXML
@@ -50,6 +66,9 @@ public class ChessController {
 
     @FXML
     private Text scoreText;
+
+    @FXML
+    private Text gameImportText;
 
     @FXML
     private ImageView logoImageView;
@@ -60,11 +79,6 @@ public class ChessController {
         initializeBoard();
         initializeImageViews();
         initializeLogoImageView();
-    }
-
-    @FXML
-    private void initializeLogoImageView() {
-        logoImageView.setImage(new Image("assets/logo.png"));
     }
 
     @FXML
@@ -111,6 +125,39 @@ public class ChessController {
             views[i].fitHeightProperty().bind(squares[i].heightProperty());
             views[i].setImage(null);
         }
+    }
+
+    @FXML
+    private void importGame() throws Exception {
+        String gameFileName = gameTextField.getText() + ".pgn";
+        PGNReader pgnReader = new PGNReader(gameFileName);
+        gameImportText.setText("File " + gameFileName + " has been imported.");
+        theGame = pgnReader.parseGame();
+        notepadTextArea.setText(theGame.toString());
+        theGame.gotoStart();
+        positionTextField.setText(theGame.getPosition().getFEN());
+        heatMap();
+    }
+
+    @FXML
+    private void restartGame() {
+        theGame.gotoStart();
+        positionTextField.setText(theGame.getPosition().getFEN());
+        heatMap();
+    }
+
+    @FXML
+    private void previousMove() {
+        theGame.goBack();
+        positionTextField.setText(theGame.getPosition().getFEN());
+        heatMap();        
+    }
+
+    @FXML
+    private void nextMove() {
+        theGame.goForward();
+        positionTextField.setText(theGame.getPosition().getFEN());
+        heatMap();
     }
 
     @FXML
@@ -264,6 +311,22 @@ public class ChessController {
     }
 
     @FXML
+    private void setNotepadText() {
+        notepadTextArea.setText("Example FEN positions:\n\n" +
+                "Opera Game Mate:\n" +
+                "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5\n\n" +
+                "Back Rank Checkmate:\n" +
+                "R5k1/5ppp/8/8/8/8/8/6K1\n\n" +
+                "Fischer Immortal Checkmate:\n" +
+                "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5");
+    }
+
+    @FXML
+    private void initializeLogoImageView() {
+        logoImageView.setImage(new Image("assets/logo.png"));
+    }
+
+    @FXML
     public void openGithub() {
         if(Desktop.isDesktopSupported())
         {
@@ -292,17 +355,6 @@ public class ChessController {
     }
 
     @FXML
-    private void setNotepadText() {
-        notepadTextArea.setText("Example FEN positions:\n\n" +
-                "Opera Game Mate:\n" +
-                "1n1Rkb1r/p4ppp/4q3/4p1B1/4P3/8/PPP2PPP/2K5\n\n" +
-                "Back Rank Checkmate:\n" +
-                "R5k1/5ppp/8/8/8/8/8/6K1\n\n" +
-                "Fischer Immortal Checkmate:\n" +
-                "1Q6/5pk1/2p3p1/1p2N2p/1b5P/1bn5/2r3P1/2K5");
-    }
-
-    @FXML
     public void aboutProgram() {
         AlertBox.display("About Chess Viewer", "Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use and modification without sale in reproduction. Thank you for your cooperation and for using Chess Viewer!");
     }
@@ -310,5 +362,36 @@ public class ChessController {
     @FXML
     public void instructions() {
         AlertBox.display("Chess Viewer Instructions", "Input the beginning of an FEN string into the \"Enter Position Here\" box and click \"Display Heatmap\" to portray this position as each piece is attacked. The green squares represent squares controlled by white - the stronger the green the better the control, and like wise red squares are controlled by black.");
+    }
+
+    @FXML
+    void keyPressed(KeyEvent event) {
+        switch (event.getCode()) {
+            case A:
+            case K:
+            case DOWN:
+            case KP_DOWN:
+            case LEFT:
+            case KP_LEFT:
+                previousMove();
+                break;
+            case SPACE:
+            case D:
+            case J:
+            case UP:
+            case KP_UP:
+            case RIGHT:
+            case KP_RIGHT:
+                nextMove();
+                break;
+            case R:
+                restartGame();
+                break;
+            case C:
+                clearTextField();
+                break;
+            default:
+                break;
+        }
     }
 }
