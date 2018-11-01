@@ -150,7 +150,13 @@ public class ChessController {
 
     @FXML
     private void importGame() throws Exception {
-        String gameFileName = gameTextField.getText() + ".pgn";
+        String gameFileName = "";
+        System.out.println(gameTextField.getText().substring(gameTextField.getText().length() - 4));
+        if (gameTextField.getText().substring(gameTextField.getText().length() - 4).equals(".pgn")) {
+            gameFileName = gameTextField.getText();
+        } else {
+            gameFileName = gameTextField.getText() + ".pgn";
+        }
         PGNReader pgnReader = new PGNReader(gameFileName);
         gameImportText.setText("File " + gameFileName + " has been imported.");
         theGame = pgnReader.parseGame();
