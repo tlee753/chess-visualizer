@@ -2,6 +2,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -74,11 +76,30 @@ public class ChessController {
     private ImageView logoImageView;
 
     @FXML
+    private RadioButton radioBoth;
+
+    @FXML
+    private RadioButton radioWhite;
+
+    @FXML
+    private RadioButton radioBlack;
+
+    private ToggleGroup radioToggle = new ToggleGroup();
+
+    @FXML
     public void initialize() {
         setNotepadText();
         initializeBoard();
         initializeImageViews();
         initializeLogoImageView();
+
+        radioBoth.setUserData("both");
+        radioWhite.setUserData("white");
+        radioBlack.setUserData("black");
+        radioBoth.setToggleGroup(radioToggle);
+        radioWhite.setToggleGroup(radioToggle);
+        radioBlack.setToggleGroup(radioToggle);
+        radioBoth.setSelected(true);
     }
 
     @FXML
@@ -87,7 +108,7 @@ public class ChessController {
         Pane[] darkSquares = {a1, a3, a5, a7, b2, b4, b6, b8, c1, c3, c5, c7, d2, d4, d6, d8, e1, e3, e5, e7, f2, f4, f6, f8, g1, g3, g5, g7, h2, h4, h6, h8};
 
         for (Pane p : lightSquares) {
-            p.setStyle("-fx-background-color: #fff;");
+            p.setStyle("-fx-background-color: #f8f8ff;");
         }
         for (Pane p : darkSquares) {
             p.setStyle("-fx-background-color: #bbb;");
@@ -164,6 +185,7 @@ public class ChessController {
     public void heatMap() {
         initializeBoard();
         initializeImageViews();
+        String radioAnswer = radioToggle.getSelectedToggle().getUserData().toString();
         Pane[] squares = {
             a1, a2, a3, a4, a5, a6, a7, a8, b1, b2, b3, b4, b5, b6, b7, b8,
             c1, c2, c3, c4, c5, c6, c7, c8, d1, d2, d3, d4, d5, d6, d7, d8,
@@ -189,6 +211,10 @@ public class ChessController {
                 h5ImageView, h6ImageView, h7ImageView, h8ImageView
         };
 
+        if (positionTextField.getText().isEmpty()) {
+            return;
+        }
+
         FENViewer viewer = new FENViewer(positionTextField.getText());
         int[][] pointArray = viewer.getPointArray();
         char[][] pieceArray = viewer.getPositionArray();
@@ -196,50 +222,49 @@ public class ChessController {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-
                 // adjust colors via points
                 int points = pointArray[j][i];
                 String hex = "";
-                if (points == 0) {
+                if (points == 0 && radioAnswer == "both") {
                     if (tensionArray[j][i]) {
-                        squares[j * 8 + (7-i)].setStyle("-fx-background-color: #ff0;");
+                        squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(255, 255, 0, 0.85);");
                     }
-                } else if (points > 0) {
+                } else if (points > 0 && radioAnswer != "black") {
                     switch (points) {
                         case 1:
-                            hex = "f";
+                            hex = "255";
                             break;
                         case 2:
-                            hex = "b";
+                            hex = "191";
                             break;
                         case 3:
-                            hex = "8";
+                            hex = "127";
                             break;
                         case 4:
-                            hex = "4";
+                            hex = "63";
                             break;
                         default:
                             hex = "0";
                     }
-                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: #0" + hex + "0;");
-                } else {
+                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(0, " + hex + ", 0, 0.85);");
+                } else if (points < 0 && radioAnswer != "white") {
                     switch (points) {
                         case -1:
-                            hex = "f";
+                            hex = "255";
                             break;
                         case -2:
-                            hex = "b";
+                            hex = "191";
                             break;
                         case -3:
-                            hex = "8";
+                            hex = "127";
                             break;
                         case -4:
-                            hex = "4";
+                            hex = "63";
                             break;
                         default:
                             hex = "0";
                     }
-                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: #" + hex + "00;");
+                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(" + hex + ", 0, 0, 0.85);");
                 }
 
                 // add pieces to squares

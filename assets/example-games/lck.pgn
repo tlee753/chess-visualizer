@@ -1,0 +1,34 @@
+[Event "CCCC 1: Rapid Rumble (15|5) Stage 3"]
+[Site "Chess.com"]
+[Date "2018.10.02"]
+[Round "?"]
+[White "Lc0 17.11089"]
+[Black "Komodo 2118.00"]
+[Result "1-0"]
+[WhiteElo "3300"]
+[BlackElo "3404"]
+[WhiteType "program"]
+[BlackType "program"]
+[ECO "E46"]
+[Opening "Nimzo-Indian"]
+[Variation "4.e3 O-O"]
+[TimeControl "900+5"]
+[Time "09:02:38"]
+[Termination "normal"]
+[PlyCount "191"]
+
+1. d4 Nf6 2. c4 e6 3. Nc3 Bb4 4. e3 O-O 5. Qc2 d5 6. a3 Bxc3+ 7. Qxc3 b6 8. Nf3
+Bb7 9. b3 c5 10. dxc5 Ne4 11. Qc2 Nd7 12. cxb6 dxc4 13. bxc4 axb6 14. Be2 e5 15.
+O-O Qc7 16. Bd2 Rfe8 17. Bb4 Nec5 18. Rad1 Bc6 19. Qb2 Ba4 20. Rd5 Rac8 21. Bc3
+f6 22. Qb1 Bc6 23. Rdd1 Be4 24. Qa2 Bc6 25. h3 Na4 26. Bb4 Ndc5 27. Nd2 Qf7 28.
+Qc2 f5 29. f3 Qg6 30. Rf2 Re6 31. f4 Qf6 32. fxe5 Rxe5 33. e4 Rce8 34. Bh5 g6
+35. Bf3 f4 36. Rdf1 Kg7 37. Bd1 g5 38. Bh5 Rd8 39. Re2 Kh6 40. Bf3 Rd3 41. Rfe1
+Bd7 42. Nf1 Bxh3 43. gxh3 Rxf3 44. Nh2 Rg3+ 45. Rg2 Re8 46. Ng4+ Rxg4 47. hxg4
+Qd4+ 48. Kh1 Kg7 49. Rd2 Qf6 50. e5 Qh6+ 51. Rh2 Qc6+ 52. Kg1 h6 53. e6 Rxe6 54.
+Rhe2 Qf3 55. Rxe6 Nxe6 56. Qe2 Qxe2 57. Rxe2 Kf6 58. Rd2 Ke5 59. Bd6+ Kf6 60.
+Kg2 Kf7 61. Be5 Nac5 62. Rd6 Na4 63. Rd7+ Kg6 64. Ba1 Nac5 65. Rd6 Kf7 66. Rxb6
+Ke7 67. Kf3 Nd7 68. Rb1 Nec5 69. Bd4 Ne6 70. Ke4 Kf7 71. a4 Ke7 72. a5 Ke8 73.
+Bb6 Kf7 74. Ra1 Nf6+ 75. Kf3 Nd7 76. Ke4 Nf6+ 77. Kf3 Nd7 78. Kg2 Kg6 79. Rd1
+Nb8 80. Ba7 Nc6 81. Bb6 f3+ 82. Kxf3 Nxa5 83. Bxa5 Kf7 84. Ke4 Nc5+ 85. Kf5 Ke8
+86. Kf6 Ne4+ 87. Ke6 Nc5+ 88. Kf5 Nb7 89. Bb6 Ke7 90. c5 h5 91. gxh5 g4 92. h6
+Nxc5 93. Bxc5+ Ke8 94. h7 Kf7 95. h8=Q g3 96. Qf8# 1-0

@@ -1,0 +1,27 @@
+[Event "CCC 2: Blitz Battle (5|2)"]
+[Site "Chess.com"]
+[Date "2018.10.13"]
+[Round "?"]
+[White "Lc0 0.18.1"]
+[Black "Hannibal 1.7"]
+[Result "1-0"]
+[BlackElo "2200"]
+[ECO "E90"]
+[Opening "King's Indian"]
+[Time "22:12:16"]
+[Variation "5.Nf3 O-O 6.h3 c5 7.d5 e6 8.Bd3 exd5 9.exd5 Re8"]
+[WhiteElo "2000"]
+[TimeControl "300+2"]
+[Termination "normal"]
+[PlyCount "95"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 Nf6 2. c4 c5 3. d5 g6 4. Nc3 d6 5. Nf3 Bg7 6. e4 O-O 7. h3 e6 8. Bd3 exd5
+9. exd5 Re8+ 10. Be3 Bf5 11. O-O Ne4 12. Qc2 Nxc3 13. Bxf5 Nxd5 14. cxd5 gxf5
+15. Rae1 Nd7 16. Bg5 Qa5 17. Qxf5 Ne5 18. Nxe5 Rxe5 19. Rxe5 Bxe5 20. Bf4 Bxf4
+21. Qxf4 Qxa2 22. Qxd6 Qxb2 23. Qe7 Qg7 24. Rd1 Qf8 25. d6 Rb8 26. Qf6 Qg7 27.
+Qh4 f6 28. Re1 Rd8 29. Re7 Qg6 30. d7 Kf8 31. Rxh7 b6 32. f4 Qg7 33. Rxg7 Kxg7
+34. Qh5 Kf8 35. Qh7 c4 36. h4 a5 37. h5 Rxd7 38. Qxd7 c3 39. h6 c2 40. Qc7 c1=R+
+41. Qxc1 Ke7 42. h7 Kd7 43. h8=R Kd6 44. Rd8+ Ke6 45. Qc8+ Kf7 46. f5 Kg7 47.
+Rh8 Kf7 48. Qf8# 1-0
