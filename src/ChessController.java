@@ -4,12 +4,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.FileChooser;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.File;
@@ -149,10 +151,22 @@ public class ChessController {
     }
 
     @FXML
+    private void openFile() throws Exception {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file != null) {
+            gameTextField.setText(file.toString());
+            importGame();
+        }
+    }
+
+    @FXML
     private void importGame() throws Exception {
         String gameFileName = "";
-        System.out.println(gameTextField.getText().substring(gameTextField.getText().length() - 4));
-        if (gameTextField.getText().substring(gameTextField.getText().length() - 4).equals(".pgn")) {
+        if (gameTextField.getText().isEmpty()) {
+            return;
+        } else if (gameTextField.getText().substring(gameTextField.getText().length() - 4).equals(".pgn")) {
             gameFileName = gameTextField.getText();
         } else {
             gameFileName = gameTextField.getText() + ".pgn";
@@ -168,23 +182,29 @@ public class ChessController {
 
     @FXML
     private void restartGame() {
-        theGame.gotoStart();
-        positionTextField.setText(theGame.getPosition().getFEN());
-        heatMap();
+        if (theGame != null) {
+            theGame.gotoStart();
+            positionTextField.setText(theGame.getPosition().getFEN());
+            heatMap();
+        }
     }
 
     @FXML
     private void previousMove() {
-        theGame.goBack();
-        positionTextField.setText(theGame.getPosition().getFEN());
-        heatMap();        
+        if (theGame != null) {
+            theGame.goBack();
+            positionTextField.setText(theGame.getPosition().getFEN());
+            heatMap();
+        }
     }
 
     @FXML
     private void nextMove() {
-        theGame.goForward();
-        positionTextField.setText(theGame.getPosition().getFEN());
-        heatMap();
+        if (theGame != null) {
+            theGame.goForward();
+            positionTextField.setText(theGame.getPosition().getFEN());
+            heatMap();
+        }
     }
 
     @FXML
@@ -221,7 +241,7 @@ public class ChessController {
             return;
         }
 
-        FENViewer viewer = new FENViewer(positionTextField.getText());
+        FENViewer viewer = new FENViewer(positionTextField.getText(), radioAnswer);
         int[][] pointArray = viewer.getPointArray();
         char[][] pieceArray = viewer.getPositionArray();
         boolean[][] tensionArray = viewer.getTensionArray();
@@ -231,11 +251,11 @@ public class ChessController {
                 // adjust colors via points
                 int points = pointArray[j][i];
                 String hex = "";
-                if (points == 0 && radioAnswer == "both") {
+                if (points == 0) {
                     if (tensionArray[j][i]) {
                         squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(255, 255, 0, 0.85);");
                     }
-                } else if (points > 0 && radioAnswer != "black") {
+                } else if (points > 0) {
                     switch (points) {
                         case 1:
                             hex = "255";
@@ -253,7 +273,7 @@ public class ChessController {
                             hex = "0";
                     }
                     squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(0, " + hex + ", 0, 0.85);");
-                } else if (points < 0 && radioAnswer != "white") {
+                } else if (points < 0) {
                     switch (points) {
                         case -1:
                             hex = "255";
@@ -387,18 +407,17 @@ public class ChessController {
 
     @FXML
     public void aboutProgram() {
-        AlertBox.display("About Chess Viewer", "Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use and modification without sale in reproduction. Thank you for your cooperation and for using Chess Viewer!");
+        AlertBox.display("About Chess Viewer", "Chess Viewer is a JavaFx program designed and created by tlee753. It is licensed under the MIT open source license for use, modification, and reproduction. Thank you for using Chess Viewer!");
     }
 
     @FXML
     public void instructions() {
-        AlertBox.display("Chess Viewer Instructions", "Input the beginning of an FEN string into the \"Enter Position Here\" box and click \"Display Heatmap\" to portray this position as each piece is attacked. The green squares represent squares controlled by white - the stronger the green the better the control, and like wise red squares are controlled by black.");
+        AlertBox.display("Chess Viewer Instructions", "Choose a PGN chess game file via clicking the \"Open\" button or input the beginning of an FEN string into the \"Enter Position Here\" box, then click \"Display Heatmap\" to portray the position(s) as each piece is attacked. The green squares represent squares controlled by white - the stronger the green the better the control, and like wise red squares are controlled by black. Yellow indicates a square under tension with equal and non-zero control by white and black. Grey or white squares are not controlled by either side. \n\nHint: you can use \"j\" and \"k\" to flip through game moves, \"r\" to restart a game, \"h\" to show the heatmap, and \"c\" to clear the heatmap.");
     }
 
     @FXML
     void keyPressed(KeyEvent event) {
         switch (event.getCode()) {
-            case A:
             case K:
             case DOWN:
             case KP_DOWN:
@@ -406,8 +425,6 @@ public class ChessController {
             case KP_LEFT:
                 previousMove();
                 break;
-            case SPACE:
-            case D:
             case J:
             case UP:
             case KP_UP:
@@ -415,11 +432,14 @@ public class ChessController {
             case KP_RIGHT:
                 nextMove();
                 break;
+            case H:
+                heatMap();
+                break;
             case R:
                 restartGame();
                 break;
             case C:
-                clearTextField();
+                initializeBoard();
                 break;
             default:
                 break;

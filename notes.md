@@ -4,6 +4,14 @@ javac *.java
 java ChessApp
 
 
+### Versioning
+change version in
+- .fxml file name
+- .fxml gui label (scenebuilder)
+- ChessApp.java
+    - windows title
+    - link to fxml file
+
 
 ### Jar Compilation
 jar -cvfm Chess-<version>-<java version>.jar manifest.txt *.class *.fxml assets chesspresso
