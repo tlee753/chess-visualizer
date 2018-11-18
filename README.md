@@ -1,6 +1,7 @@
 # Chess Visualizer
 Open source chess program devised to create a psuedo heat map of a chess board with color representation of attack and defense values of each square. Program is written is javafx and release files of the program can be found in the `release` folder.
 
+[More Info](https://tlee753.com/chess-visualizer/)
 ![Demo](./assets/visualization/GOTC Endgame.png)
 
 ### Long Term Vision
