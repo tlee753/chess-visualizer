@@ -2,6 +2,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.FileChooser;
@@ -12,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 import java.awt.*;
 import java.io.File;
@@ -76,6 +78,9 @@ public class ChessController {
 
     @FXML
     private ImageView logoImageView;
+
+    @FXML
+    private MenuItem setFullScreenMenuItem;
 
     @FXML
     private RadioButton radioBoth;
@@ -253,44 +258,50 @@ public class ChessController {
                 String hex = "";
                 if (points == 0) {
                     if (tensionArray[j][i]) {
-                        squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(255, 255, 0, 0.85);");
+                        squares[j * 8 + (7-i)].setStyle("-fx-background-color: #fffc66;");
                     }
                 } else if (points > 0) {
                     switch (points) {
                         case 1:
-                            hex = "255";
+                            hex = "#88fa4e";
                             break;
                         case 2:
-                            hex = "191";
+                            hex = "#61d836";
                             break;
                         case 3:
-                            hex = "127";
+                            hex = "#1db100";
                             break;
                         case 4:
-                            hex = "63";
+                            hex = "#017100";
+                            break;
+                        case 5:
+                            hex = "#017100";
                             break;
                         default:
-                            hex = "0";
+                            hex = "#017100";
                     }
-                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(0, " + hex + ", 0, 0.85);");
+                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: " + hex + ";");
                 } else if (points < 0) {
                     switch (points) {
                         case -1:
-                            hex = "255";
+                            hex = "#ff968d";
                             break;
                         case -2:
-                            hex = "191";
+                            hex = "#ff644e";
                             break;
                         case -3:
-                            hex = "127";
+                            hex = "#ee220c";
                             break;
                         case -4:
-                            hex = "63";
+                            hex = "#b51700";
+                            break;
+                        case 5:
+                            hex = "#b51700";
                             break;
                         default:
-                            hex = "0";
+                            hex = "#b51700";
                     }
-                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: rgba(" + hex + ", 0, 0, 0.85);");
+                    squares[j * 8 + (7-i)].setStyle("-fx-background-color: " + hex + ";");
                 }
 
                 // add pieces to squares
@@ -357,6 +368,12 @@ public class ChessController {
     }
 
     @FXML
+    private void setViewFullScreen(ActionEvent event) {
+       Stage stage = (Stage) gameTextField.getScene().getWindow();
+       stage.setFullScreen(true);
+    }
+
+    @FXML
     public void closeProgram() {
         Platform.exit();
     }
@@ -416,6 +433,11 @@ public class ChessController {
     }
 
     @FXML
+    public void keyboardShortcuts() {
+        AlertBox.display("Keyboard Shortcuts", "J: Next Move \nK: Previous Move \nH:Display Heat Map \nR: Restart Game \nC: Clear Heat Map \nW: Show White Heat Map \nB: Show Black Heat Map \nT: Show Combined Heat Map \nO: Open File");
+    }
+
+    @FXML
     void keyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case K:
@@ -440,6 +462,29 @@ public class ChessController {
                 break;
             case C:
                 initializeBoard();
+                break;
+            case W:
+                radioWhite.setSelected(true);
+                heatMap();
+                break;
+            case B:
+                radioBlack.setSelected(true);
+                heatMap();
+                break;
+            case T:
+                radioBoth.setSelected(true);
+                heatMap();
+                break;
+            case F:
+                Stage stage = (Stage) gameTextField.getScene().getWindow();
+                stage.setFullScreen(true);
+                break;
+            case O:
+                try {
+                    openFile();
+                } catch (Exception e) {
+
+                }
                 break;
             default:
                 break;

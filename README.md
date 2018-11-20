@@ -3,7 +3,7 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 
 [More Info](http://tlee753.com/chess-visualizer/)
 
-![Demo](/assets/visualization/GOTC-Endgame.png)
+![Demo](/assets/screenshots/frontend-1.9.png)
 
 ### Long Term Vision
 I really hope that far more mainstream chess programs will implement the ideas I have presented on this project within their chess platforms. This is really just a feature I was keen to explore and happened to have the programming know how to try it out. Long term it will be hard to maintain as an individual and therefore I hope the merits of teaching chess visually will be realized.
