@@ -30,6 +30,7 @@ I really hope that far more mainstream chess programs will implement the ideas I
 - [x] keyboard navigation
 - [x] file chooser
 - [x] white and black toggle heatmap
+- [x] dark mode
 - [ ] small scale game database
 - [ ] moveable piece implementation
 - [ ] valid position checking
