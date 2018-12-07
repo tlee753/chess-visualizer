@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 
 import java.awt.*;
@@ -92,6 +93,8 @@ public class ChessController {
     private RadioButton radioBlack;
 
     private ToggleGroup radioToggle = new ToggleGroup();
+    private boolean fullScreenToggle = false;
+    private boolean darkModeToggle = false;
 
     @FXML
     public void initialize() {
@@ -368,9 +371,21 @@ public class ChessController {
     }
 
     @FXML
-    private void setViewFullScreen(ActionEvent event) {
-       Stage stage = (Stage) gameTextField.getScene().getWindow();
-       stage.setFullScreen(true);
+    private void toggleViewFullScreen(ActionEvent event) {
+        Stage stage = (Stage) gameTextField.getScene().getWindow();
+        fullScreenToggle = !fullScreenToggle;
+        stage.setFullScreen(fullScreenToggle);
+    }
+
+    @FXML
+    private void toggleViewDarkMode(ActionEvent event) {
+        Scene scene = (Scene) gameTextField.getScene();
+        darkModeToggle = !darkModeToggle;
+        if (darkModeToggle) {
+            scene.getStylesheets().add("styles.css");
+        } else {
+            scene.getStylesheets().remove("styles.css");
+        }
     }
 
     @FXML
@@ -477,7 +492,8 @@ public class ChessController {
                 break;
             case F:
                 Stage stage = (Stage) gameTextField.getScene().getWindow();
-                stage.setFullScreen(true);
+                fullScreenToggle = !fullScreenToggle;
+                stage.setFullScreen(fullScreenToggle);
                 break;
             case O:
                 try {

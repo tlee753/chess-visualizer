@@ -27,6 +27,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
+                  <MenuItem fx:id="openFileMenuOption" mnemonicParsing="false" onAction="#openFile" text="Open File" />
               <MenuItem fx:id="closeMenuOption" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
             </items>
           </Menu>
@@ -38,7 +39,8 @@
           </Menu>
             <Menu mnemonicParsing="false" text="View">
                <items>
-                  <MenuItem fx:id="setFullScreenMenuItem" mnemonicParsing="false" onAction="#setViewFullScreen" text="Full Screen" />
+                  <MenuItem fx:id="setFullScreenMenuItem" mnemonicParsing="false" onAction="#toggleViewFullScreen" text="Full Screen" />
+                  <MenuItem fx:id="setDarkModeMenuItem" mnemonicParsing="false" onAction="#toggleViewDarkMode" text="Dark Mode" />
                </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -399,7 +401,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <VBox HBox.hgrow="ALWAYS">
+            <VBox stylesheets="@styles.css" HBox.hgrow="ALWAYS">
                <children>
                   <HBox>
                      <children>
@@ -600,7 +602,7 @@
                         </Hyperlink>
                      </children>
                   </HBox>
-                  <Label text="Chess Viewer v1.9" textAlignment="CENTER">
+                  <Label text="Chess Viewer v2.0" textAlignment="CENTER">
                      <font>
                         <Font size="12.0" />
                      </font>
