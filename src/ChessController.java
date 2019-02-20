@@ -17,8 +17,11 @@ import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -161,10 +164,21 @@ public class ChessController {
     @FXML
     private void openFile() throws Exception {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Open PGN File");
         File file = fileChooser.showOpenDialog(new Stage());
         if (file != null) {
+            notepadTextArea.setText("");
             gameTextField.setText(file.toString());
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+                String line = null;
+                while( (line = bufferedReader.readLine()) != null ) {
+                    notepadTextArea.appendText(line + "\n");
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("hit");
+            } catch (IOException e) {
+                System.out.println("hit");
+            }
             importGame();
         }
     }
@@ -182,7 +196,7 @@ public class ChessController {
         PGNReader pgnReader = new PGNReader(gameFileName);
         gameImportText.setText("File " + gameFileName + " has been imported.");
         theGame = pgnReader.parseGame();
-        notepadTextArea.setText(theGame.toString());
+        // notepadTextArea.setText(theGame.toString());
         theGame.gotoStart();
         positionTextField.setText(theGame.getPosition().getFEN());
         heatMap();

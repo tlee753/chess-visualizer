@@ -16,9 +16,9 @@ public class ChessApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ChessViewer-2.0.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ChessViewer-2.1.fxml"));
 
-        stage.setTitle("Chess Viewer 2.0");
+        stage.setTitle("Chess Viewer 2.1");
         stage.setScene(new Scene(root, 1200, 720));
         stage.show();
     }
