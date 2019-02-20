@@ -463,7 +463,7 @@ public class ChessController {
 
     @FXML
     public void keyboardShortcuts() {
-        AlertBox.display("Keyboard Shortcuts", "J: Next Move \nK: Previous Move \nH:Display Heat Map \nR: Restart Game \nC: Clear Heat Map \nW: Show White Heat Map \nB: Show Black Heat Map \nT: Show Combined Heat Map \nO: Open File");
+        AlertBox.display("Keyboard Shortcuts", "J: Next Move \nK: Previous Move \nH: Display Heat Map \nR: Restart Game \nC: Clear Heat Map \nW: Show White Heat Map \nB: Show Black Heat Map \nT: Show Combined Heat Map \nO: Open File \nF: Toggle Full Screen \nD: Toggle Dark Mode");
     }
 
     @FXML
