@@ -509,6 +509,15 @@ public class ChessController {
                 fullScreenToggle = !fullScreenToggle;
                 stage.setFullScreen(fullScreenToggle);
                 break;
+            case D:
+                Scene scene = (Scene) gameTextField.getScene();
+                darkModeToggle = !darkModeToggle;
+                if (darkModeToggle) {
+                    scene.getStylesheets().add("styles.css");
+                } else {
+                    scene.getStylesheets().remove("styles.css");
+                }
+                break;
             case O:
                 try {
                     openFile();
