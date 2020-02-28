@@ -1,6 +1,8 @@
 ### Developing
 `cd src`
+
 `javac *.java`
+
 `java ChessApp`
 
 ### Versioning
