@@ -1,8 +1,7 @@
 ### Developing
-cd src
-javac *.java
-java ChessApp
-
+`cd src`
+`javac *.java`
+`java ChessApp`
 
 ### Versioning
 change version in
@@ -12,14 +11,15 @@ change version in
     - windows title
     - link to fxml file
 
-
-### Jar Compilation
+---
+### Building Artifacts
+##### Jar Compilation
 jar -cvfm Chess-<version>-<java version>.jar manifest.txt *.class *.fxml assets chesspresso
 
-### Java Compilation
+##### Java Compilation
 javac -target 1.8 -source 1.8 *.java
 
-
+---
 
 ### Chesspresso Testing
 javac -cp .:Chesspresso-lib.jar Main.java
