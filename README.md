@@ -22,8 +22,8 @@ I really hope that far more mainstream chess programs will implement the ideas I
 ![Design](/assets/chess-app-design-1.jpg)
 
 ### TODO
-- [x] About/Instruction pop up boxes
-- [x] nuetral tension squares in yellow
+- [x] about/instruction pop up boxes
+- [x] neutral tension squares in yellow
 - [x] svg pieces :) & image views
 - [x] logo
 - [x] error detection with FEN strings
