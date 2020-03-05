@@ -8,7 +8,7 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 2. Download the lastest `jar` file from **Releases**
 3. Double click on the `jar` file to run
 
-### Demo
+### Screenshot
 ![Demo](/assets/screenshots/frontend-1.9.png)
 
 ### Long Term Vision
