@@ -1,5 +1,5 @@
 # Chess Visualizer
-Open source chess program devised to create a psuedo heat map of a chess board with color representation of attack and defense values of each square. Program is written is `javafx` and release files of the program can be found in the `release` folder or under **Releases** on Github.
+Open source chess program devised to create a psuedo heat map of a chess board with color representation of attack and defense values of each square. Green represents white, red represents black, and yellow square are under tension. The greener/redder the square, the more control white/black has over it.
 
 [More Info](http://tlee753.com/chess-visualizer/)
 
@@ -14,7 +14,7 @@ Open source chess program devised to create a psuedo heat map of a chess board w
 ### Long Term Vision
 I really hope that far more mainstream chess programs will implement the ideas I have presented on this project within their chess platforms. This is really just a feature I was keen to explore and happened to have the programming know how to try it out. Long term it will be hard to maintain as an individual and therefore I hope the merits of teaching chess visually will be realized.
 
-### Installation
+### Installation Notes
 - You must use the [Oracle JDK/JRE](https://java.com/en/) to develop/run
     - **That means no `sudo apt install openjdk` debian-based Linux users**
     - currently the focus is on the JDK 8, but 10/11 will someday be the only supported platform
