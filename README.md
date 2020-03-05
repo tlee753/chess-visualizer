@@ -14,9 +14,12 @@ I really hope that far more mainstream chess programs will implement the ideas I
     - currently the focus is on the JDK 8, but 10/11 will someday be the only supported platform
 
 ### Repository Layout
-- src: the in development source code
-- release: jar files containing the program releases in the format `Chess-<PROGAM VERSION>-<JAVA RELEASE>.jar`
-- assets: various assets used to design/develop/test the program (includes some example .pgn games)
+- `src` : the in development source code
+- `release` : jar files containing the program releases in the format `Chess-<PROGAM VERSION>-<JAVA RELEASE>.jar`
+- `assets` : various assets used to design/develop/test the program (includes some example .pgn games)
+
+### Design Layout
+![Design](/assets/chess-app-design-1.jpg)
 
 ### TODO
 - [x] About/Instruction pop up boxes
